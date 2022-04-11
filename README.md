@@ -1,4 +1,4 @@
-# health-checker
+# URL Health Checker
 
 ## To run the projects:
 
@@ -13,4 +13,4 @@ docker compose up
 
 
 ## Postman collection: 
-[postman-collection]()
+[postman-collection](./postman-collection)
