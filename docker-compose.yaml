@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  server:
+    build: .
+    ports: 
+      - "5001:5000"
+    depends_on:
+      - database
+    volumes:
+      - .:/app:rw
+
+  database:
+    image: mysql:8.0
+    ports:
+      - "3308:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - db-volume:/var/lib/mysql:rw
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=health-checker
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+volumes:
+  db-volume:
