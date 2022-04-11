@@ -74,7 +74,7 @@ async function generateReport(check: Check) {
     const status = await History.createQueryBuilder()
     .select("status")
     .addSelect("COUNT(*)", "count")
-    .addSelect("SUM(responseTime)", "responseTime")
+    .addSelect("AVG(responseTime)", "responseTime")
     .where("checkId = :id", {id: check.id})
     .groupBy("status")
     .execute();
