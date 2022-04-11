@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "764c9a78-b80b-4864-afd6-02438ddc85c5",
+		"name": "health-checker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"9sg4zwsdc1@pomail.net\",\n    \"password\": \"Test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"9sg4zwsdc1@pomail.net\",\n    \"password\": \"Test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create check (HTTP/HTTPS)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiI5c2c0endzZGMxQHBvbWFpbC5uZXQiLCJpYXQiOjE2NDk3MDA3OTgsImV4cCI6MTY0OTc4NzE5OH0.vtS29LwUoVMDVVnYglTJHBQJLCsTFToz_4He_W0GUXc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"http/https checker\",\n    \"url\": \"https://google.com\",\n    \"protocol\": \"https\",\n    \"interval\": 1,\n    \"threshold\": 3,\n    \"tags\": \"t1,t2\",\n    \"timeout\": 5,\n    \"authentication\": {\n        \"username\": \"test\",\n        \"password\": \"test\"\n    },\n    \"httpHeaders\": [\n        {\n            \"key\": \"Accept\",\n            \"value\": \"application/json\"\n        }\n    ],\n    \"statusCode\": 200,\n    \"ignoreSSL\": true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/checks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"checks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create check (TCP)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiI5c2c0endzZGMxQHBvbWFpbC5uZXQiLCJpYXQiOjE2NDk3MDA3OTgsImV4cCI6MTY0OTc4NzE5OH0.vtS29LwUoVMDVVnYglTJHBQJLCsTFToz_4He_W0GUXc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"tcp checker\",\n    \"url\": \"127.0.0.1\",\n    \"port\": 5001,\n    \"protocol\": \"tcp\",\n    \"interval\": 1,\n    \"threshold\": 3,\n    \"tags\": \"t1,t2\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/checks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"checks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update check",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGFudGFsLmNoYXdraUBnbWFpbC5jb20iLCJpYXQiOjE2NDk2MTM2NjEsImV4cCI6MTY0OTcwMDA2MX0.Wl95m0p274XqKeXiTAX9Z_FzzmKB9Sq_RK1I4ZGBiDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"myapp-xxx\",\n    \"url\": \"https://www.google.com/\",\n    \"protocol\": \"https\",\n    \"interval\": 3,\n    \"httpHeaders\": [\n        {\n            \"key\": \"Content-Type\",\n            \"value\": \"application/json\"\n        },\n        {\n            \"key\": \"Accept\",\n            \"value\": \"application/json\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/checks/43",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"checks",
+						"43"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get check by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGFudGFsLmNoYXdraUBnbWFpbC5jb20iLCJpYXQiOjE2NDk2MTM2NjEsImV4cCI6MTY0OTcwMDA2MX0.Wl95m0p274XqKeXiTAX9Z_FzzmKB9Sq_RK1I4ZGBiDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/checks/37",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"checks",
+						"37"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get checks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGFudGFsLmNoYXdraUBnbWFpbC5jb20iLCJpYXQiOjE2NDk2MTM2NjEsImV4cCI6MTY0OTcwMDA2MX0.Wl95m0p274XqKeXiTAX9Z_FzzmKB9Sq_RK1I4ZGBiDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/checks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"checks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete check",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGFudGFsLmNoYXdraUBnbWFpbC5jb20iLCJpYXQiOjE2NDk2ODg2NjQsImV4cCI6MTY0OTc3NTA2NH0.3CAqVNePwxf8URqEXysb6bMAy8rM_0q01Su7RYvgy6I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/checks/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"checks",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate report",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGFudGFsLmNoYXdraUBnbWFpbC5jb20iLCJpYXQiOjE2NDk2ODg2NjQsImV4cCI6MTY0OTc3NTA2NH0.3CAqVNePwxf8URqEXysb6bMAy8rM_0q01Su7RYvgy6I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/reports",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"reports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate report by tags",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjaGFudGFsLmNoYXdraUBnbWFpbC5jb20iLCJpYXQiOjE2NDk2ODg2NjQsImV4cCI6MTY0OTc3NTA2NH0.3CAqVNePwxf8URqEXysb6bMAy8rM_0q01Su7RYvgy6I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/reports/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"reports",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
